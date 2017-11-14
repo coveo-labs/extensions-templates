@@ -2,6 +2,7 @@ import json
 
 # Title: Normalize Metadata
 # Description: This extension is useful to normalize a document based on existing metadata values
+# Required data:
 # Parameters: targeted_metadata_name, targeted_metadata_values, new_metadata_name, new_metadata_value, new_metadata_field
 
 
