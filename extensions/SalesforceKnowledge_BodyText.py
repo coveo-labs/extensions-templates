@@ -1,7 +1,13 @@
+import re
+
 # Title: Salesforce Knowledge - Body Text
 # Description: This extension is useful to create the body text of a document based on specific metadata values
 # Required data:
 
+def cleanhtml(raw_html):
+    cleanr = re.compile('<.*?>')
+    cleantext = re.sub(cleanr, '', raw_html)
+    return cleantext
 
 def get_flattened_meta():
 
@@ -31,8 +37,10 @@ try:
         if x in meta_data.keys():
             bodyContentText = bodyContentText + ' ' + meta_data[x]
 
+    bodyContentTextClean = cleanhtml(bodyContentText)
+
     bodyTextDataStream = document.DataStream('body_text')
-    bodyTextDataStream.write(bodyContentText.encode('utf8'))
+    bodyTextDataStream.write(bodyContentTextClean.encode('utf8'))
     document.add_data_stream(bodyTextDataStream)
 except Exception as e:
     log(str(e))
