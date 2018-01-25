@@ -1,4 +1,4 @@
-# Title: FAST Feed handler
+# Title: GSA Feed handler
 # Description: Output the GSA feed to a dropbox share (or a file share, a gdrive, etc), change the extension settings so you retrieve the files, create a push source, configure the extension with the organizationId, sourceId, apiKey, and you will index FAST feeds.
 # Required data: Body TEXT
 
